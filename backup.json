@@ -1,0 +1,15 @@
+[
+		{"copia":"pagina web",
+		"dirDest":"pagina_web",
+		"servidores":["www.iesgn.org"],
+		"dirOrig":"/srv",
+		"copiaT":365,"copiaC":60,"copiaI":1,"n_max_comp":2
+		},
+		{"copia":"configuración de servidores",
+		"dirDest":"directorio_etc",
+		"servidores":["www.iesgn.org","dit.iesgn.org"],
+		"dirOrig":"/etc",
+		"copiaT":120,"copiaC":30,"copiaI":5,"n_max_comp":3
+		}
+]
+
