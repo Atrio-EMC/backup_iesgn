@@ -2,7 +2,7 @@
 
 Script python para automatizar los backup en el IES Gonzalo Nazareno.
 
-Script en python que automatiza las copias de seguridad en la infraestrucutra del IES Gonzalo Nazareno. Se debe programa su ejecución en el cron, por ejemplo.
+Script en python que automatiza las copias de seguridad en la infraestructura del IES Gonzalo Nazareno. Se debe programa su ejecución en el cron, por ejemplo.
 
 		0 1 * * * python /root/backup/backup.py >> /srv/backup/backup.log
 
@@ -30,4 +30,10 @@ Ejemplo de fichero backup.conf:
 		]
 Se hace una copia total cada 365 días del directorio /srv, del servidor www.iesgn.org, y se guarda en el directorio "pagina_web". Cada 60 días se hace una copia completa, y cada día se hace una incremental. Sólo se guardan las dos últimas copias completas.
 
-El script utiliza la herramienta [rdiff-backup](http://www.nongnu.org/rdiff-backup/) para realizar las copias completas e incrementales. Por lo tanto en los servidores donde queremos realizar las copias, tenemos que instlar el programa rdiff-backup y además deben ser accsibles por ssh (utilizando clave rsa para la autentificación ssh).
+Los tipos de copias que se realizan son las siguientes:
+
+* Copia total: Se guarda el directorio comprimido con tar.gz.
+* Copia completa: Se van guardando en directorios (numerados como 01,02,...) la copia completa del directorio a copiar.
+* Copia incremental: En las copias completas se van guardando los ficheros que se han modificaco desde la última copia completa o incremental.
+
+El script utiliza la herramienta [rdiff-backup](http://www.nongnu.org/rdiff-backup/) para realizar las copias completas e incrementales. Por lo tanto en los servidores donde queremos realizar las copias, tenemos que instalar el programa rdiff-backup y además deben ser accesibles por ssh (utilizando clave rsa para la autentificación ssh).
