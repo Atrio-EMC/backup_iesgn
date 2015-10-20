@@ -6,7 +6,7 @@ Script en python que automatiza las copias de seguridad en la infraestructura de
 
 		0 1 * * * python /root/backup/backup.py >> /srv/backup/backup.log
 
-El fichero de configuración está escrito en JSON, y es una lista de diccionarios con los siguientes campos:
+En el fichero de configuración backup.conf indicamos la lista de tareas de copia de seguridad que se van a realizar. Una tarea de copia de seguridad se puede realizar sobre varios servidores. El fichero de configuración está escrito en JSON, y es una lista de diccionarios con los siguientes campos:
 
 * copia: Descripción de la tarea de copia de seguridad
 * dirDest: Directorio donde se va a guardar los datos copiados.
